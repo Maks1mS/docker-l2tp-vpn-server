@@ -96,8 +96,7 @@ jobs:
       - name: Docker Hub Login
         env:
           DOCKER_USER: ${{ github.repository_owner }}
-          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-        run: echo "$DOCKER_TOKEN" | docker login --username "$DOCKER_USER" --password-stdin 2>&1
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login --username "$DOCKER_USER" --password-stdin
       - name: Docker Buildx
         env:
           DOCKER_USER: ${{ github.repository_owner }}
