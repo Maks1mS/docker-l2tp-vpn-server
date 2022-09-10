@@ -95,7 +95,7 @@ jobs:
           docker buildx inspect --bootstrap
       - name: Docker Hub Login
         env:
-          DOCKER_USER: ${{ github.repository_owner }}
+          DOCKER_USER: maks1ms
         run: echo ${{ secrets.DOCKER_TOKEN }} | docker login --username "$DOCKER_USER" --password-stdin
       - name: Docker Buildx
         env:
