@@ -120,7 +120,7 @@ jobs:
               --build-arg VERSION=alpine-latest \
               --cache-from type=local,src="${RUNNER_TEMP}/.buildx-cache" \
               --cache-to type=local,dest="${RUNNER_TEMP}/.buildx-cache-new" \
-              -t "$DOCKER_USER/l2tp-vpn-server:latest" \
+              -t "${DOCKER_USER,,}/l2tp-vpn-server:latest" \
               --pull \
               ${BUILD_ONLY:+--push} \
               .
@@ -135,7 +135,7 @@ jobs:
               --cache-from type=local,src="${RUNNER_TEMP}/.buildx-cache" \
               --cache-to type=local,dest="${RUNNER_TEMP}/.buildx-cache-new" \
               -f Dockerfile.debian \
-              -t "$DOCKER_USER/l2tp-vpn-server:debian" \
+              -t "${DOCKER_USER,,}/l2tp-vpn-server:debian" \
               --pull \
               ${BUILD_ONLY:+--push} \
               .
