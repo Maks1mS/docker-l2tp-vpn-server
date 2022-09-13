@@ -49,10 +49,10 @@ jobs:
         run: |
           if [ "$OS_TYPE" = "alpine" ]; then
             docker pull alpine:3.16
-            docker pull "$DOCKER_USER/l2tp-vpn-server"
+            docker pull "${DOCKER_USER,,}/l2tp-vpn-server"
           elif [ "$OS_TYPE" = "debian" ]; then
             docker pull debian:bullseye-slim
-            docker pull "$DOCKER_USER/l2tp-vpn-server:debian"
+            docker pull "${DOCKER_USER,,}/l2tp-vpn-server:debian"
           else
             exit 1
           fi
@@ -63,10 +63,10 @@ jobs:
 
           if [ "$OS_TYPE" = "alpine" ]; then
             base_ts=$(docker inspect --format='{{.Created}}' alpine:3.16)
-            image_ts=$(docker inspect --format='{{.Created}}' "$DOCKER_USER/l2tp-vpn-server")
+            image_ts=$(docker inspect --format='{{.Created}}' "${DOCKER_USER,,}/l2tp-vpn-server")
           elif [ "$OS_TYPE" = "debian" ]; then
             base_ts=$(docker inspect --format='{{.Created}}' debian:bullseye-slim)
-            image_ts=$(docker inspect --format='{{.Created}}' "$DOCKER_USER/l2tp-vpn-server:debian")
+            image_ts=$(docker inspect --format='{{.Created}}' "${DOCKER_USER,,}/l2tp-vpn-server:debian")
           else
             exit 1
           fi
